@@ -4,14 +4,11 @@ public class Rectangle extends Figure {
 
     private double sideA;
     private double sideB;
-    private double sideC;
-    private double heightA;
 
-    public Rectangle(String color, double sideA, double sideB, double sideC) {
+    public Rectangle(String color, double sideA, double sideB) {
         super(color);
         this.sideA = sideA;
         this.sideB = sideB;
-        this.sideC = sideC;
     }
 
     public double getSideA() {
@@ -30,37 +27,21 @@ public class Rectangle extends Figure {
         this.sideB = sideB;
     }
 
-    public double getSideC() {
-        return sideC;
-    }
-
-    public void setSideC(double sideC) {
-        this.sideC = sideC;
-    }
-
-    public double getHeightA() {
-        return heightA;
-    }
-
-    public void setHeightA(double heightA) {
-        this.heightA = heightA;
-    }
-
     @Override
     public double getArea() {
-        return Math.sqrt(
-                getPerimeter() * (getPerimeter() - sideA) * (getPerimeter() - sideB) * (
-                        getPerimeter()
-                                - sideC));
+        return sideA * sideB;
     }
 
     @Override
     public double getPerimeter() {
-        return sideA + sideB + sideC;
+        return (sideA + sideB) * 2;
     }
 
     @Override
-    public double getHeight() {
-        return Math.sqrt(Math.pow(sideB, 2) - Math.pow(sideA / 2, 2));
+    public void draw() {
+        System.out.printf(
+                "Figure: rectangle, area: %.1f sq. units, perimeter: %.1f units, "
+                        + "sideA: %.1f units, sideB: %.1f units, color: %s%n", getArea(),
+                getPerimeter(), getSideA(), getSideB(), getColor());
     }
 }

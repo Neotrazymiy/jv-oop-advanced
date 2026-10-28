@@ -2,35 +2,52 @@ package core.basesyntax;
 
 public class RightTriangle extends Figure {
 
-    private static final int QUANTITY_SIDE = 3;
-    private double side;
+    private double firstLeg;
+    private double secondLeg;
 
-    public RightTriangle(String color, double side) {
+    public RightTriangle(String color, double firstLeg, double secondLeg) {
         super(color);
-        this.side = side;
+        this.firstLeg = firstLeg;
+        this.secondLeg = secondLeg;
     }
 
-    public double getSide() {
-        return side;
+    public double getFirstLeg() {
+        return firstLeg;
     }
 
-    public void setSide(double side) {
-        this.side = side;
+    public void setFirstLeg(double firstLeg) {
+        this.firstLeg = firstLeg;
+    }
+
+    public double getSecondLeg() {
+        return secondLeg;
+    }
+
+    public void setSecondLeg(double secondLeg) {
+        this.secondLeg = secondLeg;
     }
 
     @Override
     public double getArea() {
-        return Math.sqrt(3) / 2 * Math.pow(side, QUANTITY_SIDE - 1);
+        return firstLeg * secondLeg / 2;
     }
 
     @Override
     public double getPerimeter() {
-        return side * QUANTITY_SIDE;
+        return firstLeg + secondLeg + getHeight();
     }
 
     @Override
     public double getHeight() {
-        return Math.sqrt(3) / 4 * Math.pow(side, 2);
+        return Math.sqrt(Math.pow(firstLeg, 2) + Math.pow(secondLeg, 2));
     }
 
+    @Override
+    public void draw() {
+        System.out.printf(
+                "Figure: rightTriangle, area: %.1f sq. units, perimeter: %.1f units, "
+                        + "firstLag: %.1f units, secondLag: %.1f units, height: %.1f units,"
+                        + " color: %s%n", getArea(), getPerimeter(), getFirstLeg(), getSecondLeg(),
+                getHeight(), getColor());
+    }
 }

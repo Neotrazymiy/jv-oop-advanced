@@ -51,4 +51,13 @@ public class IsoscelesTrapezoid extends Figure {
     public double getHeight() {
         return Math.sqrt(Math.pow(sideC, 2) - Math.pow((sideBaseB - sideBaseA) / 2, 2));
     }
+
+    @Override
+    public void draw() {
+        System.out.printf(
+                "Figure: isoscelesTrapezoid, area: %.1f sq. units, perimeter: %.1f units, "
+                        + "sideBaseA: %.1f units, sideBaseB: %.1f units, sideC: %.1f units,"
+                        + " height: %.1f units, color: %s%n", getArea(), getPerimeter(),
+                getSideBaseA(), getSideBaseB(), getSideC(), getHeight(), getColor());
+    }
 }

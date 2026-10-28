@@ -1,6 +1,6 @@
 package core.basesyntax;
 
-public class Figure implements Area, Perimeter, Height {
+public abstract class Figure implements Area, Perimeter, Height {
 
     private String color = Colors.GREEN.name();
 
@@ -32,4 +32,6 @@ public class Figure implements Area, Perimeter, Height {
     public double getPerimeter() {
         return 0;
     }
+
+    public abstract void draw();
 }

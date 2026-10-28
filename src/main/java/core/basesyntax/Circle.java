@@ -2,7 +2,7 @@ package core.basesyntax;
 
 public class Circle extends Figure {
 
-    private static final double PI = Math.PI;
+    private final double pi = Math.PI;
     private double radius = 10.0;
 
     public Circle() {
@@ -27,11 +27,18 @@ public class Circle extends Figure {
 
     @Override
     public double getArea() {
-        return PI * Math.pow(radius, 2);
+        return pi * Math.pow(radius, 2);
     }
 
     @Override
     public double getPerimeter() {
-        return PI * radius;
+        return 2 * pi * radius;
+    }
+
+    @Override
+    public void draw() {
+        System.out.printf("Figure: circle, area: %.1f sq. units, perimeter: %.1f units, "
+                        + "radius: %.1f units, color: %s%n", getArea(), getPerimeter(), getRadius(),
+                getColor());
     }
 }

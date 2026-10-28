@@ -2,7 +2,7 @@ package core.basesyntax;
 
 public class Square extends Figure {
 
-    private static final int QUANTITY_SIDE = 4;
+    private final int quantitySide = 4;
     private double side = 10.0;
 
     public Square() {
@@ -13,7 +13,7 @@ public class Square extends Figure {
         this.side = side;
     }
 
-    public void setSide(int side) {
+    public void setSide(double side) {
         this.side = side;
     }
 
@@ -28,6 +28,14 @@ public class Square extends Figure {
 
     @Override
     public double getPerimeter() {
-        return side * QUANTITY_SIDE;
+        return side * quantitySide;
+    }
+
+    @Override
+    public void draw() {
+        System.out.printf(
+                "Figure: square, area: %.1f sq. units, perimeter: %.1f units, "
+                        + "side: %.1f units, color: %s%n", getArea(), getPerimeter(), getSide(),
+                getColor());
     }
 }

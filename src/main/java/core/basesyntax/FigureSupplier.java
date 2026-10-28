@@ -1,30 +1,32 @@
 package core.basesyntax;
 
-public class FigureSupplier extends ColorSupplier {
+import java.util.Random;
 
-    private static final double NUMBER = 100.0;
+public class FigureSupplier {
+
+    private final Random random = new Random();
     private final ColorSupplier colorSupplier = new ColorSupplier();
 
     public Figure getRandomFigure() {
+        double number = 100.0;
         Figure[] figures = new Figure[]{
-                new Circle(colorSupplier.getRandomColor(), ColorSupplier.RANDOM.nextDouble(NUMBER)),
-                new Square(colorSupplier.getRandomColor(), ColorSupplier.RANDOM.nextDouble(NUMBER)),
+                new Circle(colorSupplier.getRandomColor(), random.nextDouble(number)),
+                new Square(colorSupplier.getRandomColor(), random.nextDouble(number)),
                 new Rectangle(colorSupplier.getRandomColor(),
-                        ColorSupplier.RANDOM.nextDouble(NUMBER),
-                        ColorSupplier.RANDOM.nextDouble(NUMBER),
-                        ColorSupplier.RANDOM.nextDouble(NUMBER)),
+                        random.nextDouble(number),
+                        random.nextDouble(number)),
                 new RightTriangle(colorSupplier.getRandomColor(),
-                        ColorSupplier.RANDOM.nextDouble(NUMBER)),
+                        random.nextDouble(number), random.nextDouble(number)),
                 new IsoscelesTrapezoid(colorSupplier.getRandomColor(),
-                        ColorSupplier.RANDOM.nextDouble(NUMBER),
-                        ColorSupplier.RANDOM.nextDouble(NUMBER),
-                        ColorSupplier.RANDOM.nextDouble(NUMBER))};
-        return figures[ColorSupplier.RANDOM.nextInt(figures.length)];
+                        random.nextDouble(number),
+                        random.nextDouble(number),
+                        random.nextDouble(number))};
+        return figures[random.nextInt(figures.length)];
     }
 
     public Figure getDefaultFigure() {
-        Figure[] figures = new Figure[]{new Circle(), new Square()};
-        return figures[ColorSupplier.RANDOM.nextInt(figures.length)];
+        Figure[] figures = new Figure[]{new Circle()};
+        return figures[random.nextInt(figures.length)];
     }
 
 }
