@@ -2,7 +2,7 @@ package core.basesyntax;
 
 public abstract class Figure implements Area, Perimeter, Height {
 
-    private String color = Colors.GREEN.name();
+    private String color = Colors.WHITE.name();
 
     public Figure() {
     }

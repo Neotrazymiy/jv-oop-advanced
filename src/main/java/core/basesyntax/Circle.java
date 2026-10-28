@@ -3,7 +3,7 @@ package core.basesyntax;
 public class Circle extends Figure {
 
     private final double pi = Math.PI;
-    private double radius = 10.0;
+    private double radius = 10;
 
     public Circle() {
     }
